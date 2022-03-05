@@ -18,7 +18,7 @@ function setup() {
     human = 1;
     restartBtn = createButton("Restart");
     let desc = createDiv(
-        "This is a demostration of the minimax algorithm, an adversarial search algorithm."
+        "This is a demostration of the <u>minimax algorithm</u>, an adversarial search algorithm."
     );
     let desc1 = createDiv(
         "Implemented with p5.js, this was part of my CS50 AI assignment."
@@ -42,6 +42,9 @@ function setup() {
         ];
         gameOver = false;
     });
+    let credit = createDiv(
+        'Source Code: <a style="text-decoration: none;" target="_blank" href = "https://github.com/Elliott-Chong/minimax-Tic-Tac-Toe" >Elliott Chong</a>'
+    );
 }
 const sleep = async(ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
