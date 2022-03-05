@@ -20,12 +20,16 @@
             margin: 0;
             padding: 0;
             flex-direction: column;
+            text-align: center;
             display: flex;
-            font-size: 2rem;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             font-family: 'Poppins', sans-serif;
+        }
+        
+        div:first-child {
+            font-weight: 200;
         }
         
         canvas {
@@ -44,11 +48,26 @@
             margin: 0;
             padding: 0;
         }
+        
+        div {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width:767px) {
+            div {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            div:first-child {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <p>You are <span>X</span>, the AI is <span>O</span>, you go first.</p>
+    <div>You are <span>X</span>, the AI is <span>O</span>, you go first.</div>
 </body>
 
 </html>

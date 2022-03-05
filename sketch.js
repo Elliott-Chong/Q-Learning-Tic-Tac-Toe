@@ -4,6 +4,8 @@ let board = [
     ["", "", ""],
 ];
 
+let customWidth;
+
 const players = ["O", "X"];
 let gameOver = false;
 let player;
@@ -17,7 +19,8 @@ let xAntiDiag = 0;
 let oAntiDiag = 0;
 
 function setup() {
-    createCanvas(600, 600);
+    customWidth = window.innerWidth / 1.5 > 600 ? 600 : window.innerWidth / 1.5;
+    createCanvas(customWidth, customWidth);
     player = 1;
     human = 1;
     let desc = createDiv(
@@ -26,23 +29,23 @@ function setup() {
     let desc1 = createDiv(
         "Implemented with p5.js, this was part of my CS50 AI assignment."
     );
-    console.log(desc);
-    desc.elt.style.fontSize = "1.5rem";
-    desc.elt.style.fontWeight = "600";
-    desc1.elt.style.fontSize = "1.5rem";
-    desc1.elt.style.fontWeight = "600";
+
+    // desc.elt.style.fontSize = "1.5rem";
+    // desc.elt.style.fontWeight = "600";
+    // desc1.elt.style.fontSize = "1.5rem";
+    // desc1.elt.style.fontWeight = "600";
     let credits = createDiv();
     credits = credits.elt;
     credits.innerHTML =
         "Sources: <a style='text-decoration:none;' href='https://en.wikipedia.org/wiki/Minimax'>Wikipedia</a>, <a style='text-decoration:none;' href='https://www.youtube.com/watch?v=trKjYdBASyQ&ab_channel=TheCodingTrain'>The Coding Train</a>";
-    credits.style.fontSize = "1.5rem";
+    // credits.style.fontSize = "1.5rem";
 }
 const sleep = async(ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function mouseClicked() {
+function mousePressed() {
     if (gameOver || player !== human) return;
-    let x = floor(map(mouseX, 0, 600, 0, 3));
-    let y = floor(map(mouseY, 0, 600, 0, 3));
+    let x = floor(map(mouseX, 0, customWidth, 0, 3));
+    let y = floor(map(mouseY, 0, customWidth, 0, 3));
     if (x >= board.length || x < 0 || y >= board.length || y < 0) return;
     if (board[y][x] !== "") return;
     record(x, y);
@@ -52,7 +55,7 @@ function mouseClicked() {
 }
 const robot = async() => {
     //   await sleep(random(200, 1000));
-    await sleep(100);
+    await sleep(random(200, 600));
     let bestScore = -Infinity;
     let move = { x: 0, y: 0 };
     let all = [];
