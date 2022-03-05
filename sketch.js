@@ -3,26 +3,20 @@ let board = [
     ["", "", ""],
     ["", "", ""],
 ];
+let restartBtn;
 
 let customWidth;
 
 const players = ["O", "X"];
 let gameOver = false;
 let player;
-let xRow = [0, 0, 0];
-let oRow = [0, 0, 0];
-let xCol = [0, 0, 0];
-let oCol = [0, 0, 0];
-let xDiag = 0;
-let oDiag = 0;
-let xAntiDiag = 0;
-let oAntiDiag = 0;
 
 function setup() {
     customWidth = window.innerWidth / 1.5 > 600 ? 600 : window.innerWidth / 1.5;
     createCanvas(customWidth, customWidth);
     player = 1;
     human = 1;
+    restartBtn = createButton("Restart");
     let desc = createDiv(
         "This is a demostration of the minimax algorithm, an adversarial search algorithm."
     );
@@ -38,7 +32,16 @@ function setup() {
     credits = credits.elt;
     credits.innerHTML =
         "Sources: <a style='text-decoration:none;' href='https://en.wikipedia.org/wiki/Minimax'>Wikipedia</a>, <a style='text-decoration:none;' href='https://www.youtube.com/watch?v=trKjYdBASyQ&ab_channel=TheCodingTrain'>The Coding Train</a>";
-    // credits.style.fontSize = "1.5rem";
+    restartBtn = restartBtn.elt;
+    restartBtn.addEventListener("click", () => {
+        player = 1;
+        board = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+        ];
+        gameOver = false;
+    });
 }
 const sleep = async(ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
