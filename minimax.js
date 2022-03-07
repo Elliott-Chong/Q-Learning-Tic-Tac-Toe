@@ -1,4 +1,5 @@
-const minimax = (board, depth, isMaximising) => {
+let checked = 0;
+const minimax = (board, depth, isMaximising, alpha, beta) => {
     const lookUpScores = {
         X: -1,
         O: 1,
@@ -14,13 +15,17 @@ const minimax = (board, depth, isMaximising) => {
         for (let i = 0; i < board.length; i++) {
             for (let j = 0; j < board.length; j++) {
                 if (board[i][j] !== "") continue;
+                checked++;
                 board[i][j] = "O";
-                score = minimax(board, 0, (isMaximising = false));
+                score = minimax(board, 0, (isMaximising = false), alpha, beta);
+                alpha = Math.max(alpha, score);
                 board[i][j] = "";
                 if (score >= value) {
                     value = score;
                 }
+                if (alpha >= beta) break;
             }
+            if (alpha >= beta) break;
         }
         return value;
     } else if (!isMaximising) {
@@ -28,13 +33,17 @@ const minimax = (board, depth, isMaximising) => {
         for (let i = 0; i < board.length; i++) {
             for (let j = 0; j < board.length; j++) {
                 if (board[i][j] !== "") continue;
+                checked++;
                 board[i][j] = "X";
-                score = minimax(board, 0, (isMaximising = true));
+                score = minimax(board, 0, (isMaximising = true), alpha, beta);
+                beta = Math.min(beta, score);
                 board[i][j] = "";
                 if (score <= value) {
                     value = score;
                 }
+                if (alpha >= beta) break;
             }
+            if (alpha >= beta) break;
         }
         return value;
     }

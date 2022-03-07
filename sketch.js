@@ -69,7 +69,12 @@ const robot = async() => {
         for (let j = 0; j < board.length; j++) {
             if (board[i][j] !== "") continue;
             board[i][j] = players[player];
-            let score = minimax(board, 0, (isMaximising = false));
+            let score = minimax(
+                board,
+                0,
+                (isMaximising = false), -Infinity,
+                Infinity
+            );
             all.push({ i, j, score });
             board[i][j] = "";
             if (score > bestScore) {
@@ -79,7 +84,8 @@ const robot = async() => {
             }
         }
     }
-    console.log(all);
+    console.log(checked);
+    // console.log(all);
     record(move.x, move.y);
 };
 
