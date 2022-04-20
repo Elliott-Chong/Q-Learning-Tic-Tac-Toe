@@ -1,89 +1,94 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
     <!-- <script src="libraries/p5.js"></script> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,300&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,300&family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- <script src="libraries/p5.sound.js"></script> -->
     <script src="minimax.js" defer></script>
     <script src="sketch.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"
+      integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            flex-direction: column;
-            overflow: hidden;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        div:first-child {
-            font-weight: 200;
-        }
-        
-        canvas {
-            margin: auto;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        
-        span {
-            font-weight: 600;
-        }
-        
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-        }
-        
-        button {
-            padding: 5px 10px;
-            background-color: black;
-            font-weight: bold;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-        
+      body {
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "Poppins", sans-serif;
+      }
+
+      div:first-child {
+        font-weight: 200;
+      }
+
+      canvas {
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      span {
+        font-weight: 600;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+      }
+
+      button {
+        padding: 5px 10px;
+        background-color: black;
+        font-weight: bold;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      div {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      @media (max-width: 1000px) {
         div {
-            font-size: 2rem;
-            font-weight: 600;
+          font-size: 1rem;
+          margin-bottom: 10px;
         }
-        
-        @media (max-width:1000px) {
-            div {
-                font-size: 1rem;
-                margin-bottom: 10px;
-            }
-            div:first-child {
-                font-size: 1.3rem;
-            }
-            button {
-                font-size: 1.2rem;
-            }
+        div:first-child {
+          font-size: 1.3rem;
         }
+        button {
+          font-size: 1.2rem;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>You are <span>X</span>, the AI is <span>O</span>, you go first.</div>
-</body>
-
+  </body>
 </html>
