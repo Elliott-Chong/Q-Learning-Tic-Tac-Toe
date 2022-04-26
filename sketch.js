@@ -144,7 +144,7 @@ function draw() {
         //   console.log(oRow, oCol, oDiag, oAntiDiag);
 
         for (let i = 0; i < board.length; i++) {
-            if (board[0][i] === board[1][i] && board[1][i] === board[2][i]) {
+            if (board[0][i] === board[1][i] && board[1][i] === board[2][i] && board[0][i]!='') {
                 line(
                     i * (width / 3) + width / 6,
                     height / 6,
@@ -157,7 +157,7 @@ function draw() {
 
         for (let i = 0; i < board.length; i++) {
             // row
-            if (board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+            if (board[i][0] === board[i][1] && board[i][1] === board[i][2] && board[i][0]!='') {
                 line(
                     width / 6,
                     i * (width / 3) + width / 6,
@@ -168,11 +168,11 @@ function draw() {
             }
         }
 
-        if (board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
+        if (board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[0][0]!='') {
             line(width / 6, height / 6, (5 * width) / 6, (5 * height) / 6);
         }
 
-        if (board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
+        if (board[0][2] === board[1][1] && board[1][1] === board[2][0] && board[1][1]!='') {
             line((5 * width) / 6, height / 6, width / 6, (5 * height) / 6);
         }
     }
