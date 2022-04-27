@@ -165,12 +165,12 @@ const deserialize = (str) => {
 };
 
 const get_value = (key) => {
-  // if (values.has(key)) {
-  //   return values.get(key);
-  // } else {
-  //   return 0;
-  // }
-  return computed_q.get(key);
+  if (values.has(key)) {
+    return values.get(key);
+  } else {
+    return 0;
+  }
+  // return computed_q.get(key);
 };
 
 const set_value = (key, value) => {
