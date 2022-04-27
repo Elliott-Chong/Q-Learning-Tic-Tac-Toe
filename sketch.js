@@ -131,7 +131,7 @@ function draw() {
       if (
         board[0][i] === board[1][i] &&
         board[1][i] === board[2][i] &&
-        board[0][i] !== ""
+        board[0][i] != ""
       ) {
         line(
           i * (width / 3) + width / 6,
