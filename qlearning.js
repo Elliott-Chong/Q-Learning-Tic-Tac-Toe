@@ -25,7 +25,7 @@ let deepcopy = (obj) => {
 const train = (n) => {
   let symbol = { 0: "X", 1: "O" };
   for (let i = 0; i < n; i++) {
-    console.log(`Training AI on its ${i + 1} game`);
+    // console.log(`Training AI on its ${i + 1} game`);
     let board = [
       ["", "", ""],
       ["", "", ""],
@@ -52,12 +52,16 @@ const train = (n) => {
       player = player == 1 ? 0 : 1;
       let new_state = deepcopy(board);
 
-      if (check(board) == "X" || check(board) == "O") {
-        update_q(state, new_state, best_move, 5);
-        update_q(last[player].state, new_state, last[player].action, -5);
+      if (check(board) == "X") {
+        // console.log("X won", state, new_state, last, best_move);
+        update_q(last[player].state, state, last[player].action, -2);
+        break;
+      } else if (check(board) == "O") {
+        // console.log("O won", state, new_state, last, best_move);
+        update_q(state, new_state, best_move, 2);
         break;
       } else if (check(board) == "tie") {
-        update_q(last[player].state, new_state, last[player].action, 1);
+        update_q(state, new_state, best_move, 1);
         break;
       } else if (last[player].state && last[player].action) {
         update_q(last[player].state, new_state, last[player].action, 0);
@@ -165,12 +169,15 @@ const deserialize = (str) => {
 };
 
 const get_value = (key) => {
-  if (values.has(key)) {
-    return values.get(key);
-  } else {
-    return 0;
+  const COMPUTE = true;
+  if (COMPUTE) {
+    if (values.has(key)) {
+      return values.get(key);
+    } else {
+      return 0;
+    }
   }
-  // return computed_q.get(key);
+  return computed_q.get(key);
 };
 
 const set_value = (key, value) => {
